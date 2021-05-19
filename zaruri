@@ -1,0 +1,27 @@
+from tkinter import *
+from functools import partial
+
+
+root = Tk()
+root.geometry("1200x900")
+root.title('Roll the Dice')
+
+
+
+
+text = Label(root, font=("times", 16), fg="green", text="Alege nr de zaruri")
+text.pack()
+nr_zaruri = StringVar()
+input_frame = Frame(root, width=312, height=50, bd=0, highlightbackground="black", highlightcolor="black",
+                    highlightthickness=1)
+input_frame.pack(side=TOP)
+input_field = Entry(input_frame, font=('arial', 8, 'bold'), textvariable=nr_zaruri, width=50, bg="#eee", bd=0,
+                    justify=LEFT)
+input_field.grid(row=0, column=0)
+input_field.pack(ipady=10)
+exc = partial(executare, nr_zaruri)
+
+buton = Button(root, text="ROLL!", command=exc)
+buton.place(x=580, y=80)
+
+root.mainloop()
