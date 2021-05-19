@@ -1,3 +1,4 @@
+import random
 from tkinter import *
 from functools import partial
 
@@ -6,9 +7,27 @@ root = Tk()
 root.geometry("1200x900")
 root.title('Roll the Dice')
 
+l1 = Label(root, font=("times", 150), fg="green")
+l2 = Label(root, font=("times", 150), fg="red")
+l3 = Label(root, font=("times", 150), fg="blue")
+l4 = Label(root, font=("times", 150), fg="purple")
 
-
-
+def executare(n):
+    number = ['\u2680', '\u2681', '\u2682', '\u2683', '\u2684', '\u2685']
+    if n.get() == str(1):
+        l1.config(text=f'{random.choice(number)}')
+        l1.pack()
+    if n.get() == str(2):
+        l2.config(text=f'{random.choice(number)}{random.choice(number)}')
+        l2.pack()
+    if n.get() == str(3):
+        l3.config(text=f'{random.choice(number)}{random.choice(number)}{random.choice(number)}')
+        l3.pack()
+    if n.get() == str(4):
+        l4.config(text=f'{random.choice(number)}{random.choice(number)}{random.choice(number)}{random.choice(number)}')
+        l4.pack()
+        
+        
 text = Label(root, font=("times", 16), fg="green", text="Alege nr de zaruri")
 text.pack()
 nr_zaruri = StringVar()
